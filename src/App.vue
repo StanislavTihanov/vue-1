@@ -1,17 +1,24 @@
 <script setup>
-import LayoutHeader from '@/components/layout/Header.vue';
-import LayoutSidebar from '@/components/layout/Sidebar.vue';
+import LayoutHeader from "@/components/layout/Header.vue";
+import LayoutSidebar from "@/components/layout/Sidebar.vue";
+import { ref } from "vue";
+
+const isOpenMenu = ref(false);
+
+const toggleMenu = () => {
+  isOpenMenu.value = !isOpenMenu.value;
+};
 </script>
 
 <template>
-<div class="container">
-  <layout-header/>
-  <layout-sidebar/>
-  <div class="content">
-   <router-vue/>
+  <div class="container">
+    <div class="sidebar-toggle" @click="toggleMenu">&#5125;</div>
+    <layout-header />
+    <layout-sidebar :openSidebar="isOpenMenu" />
+    <div :class="['content', { content_full: !isOpenMenu }]">
+      <router-view />
+    </div>
   </div>
-</div>
-  
 </template>
 
 <style lang="scss">
@@ -30,8 +37,27 @@ import LayoutSidebar from '@/components/layout/Sidebar.vue';
   max-width: 1440px;
   margin-left: 250px;
   padding: 30px;
-  transition: .2s;
+  transition: 0.2s;
   &_full {
+    margin-left: 0;
+  }
+}
+.sidebar-toggle {
+  position: fixed;
+  left: 0;
+  width: 15px;
+  background: var(--primary);
+  height: 100%;
+  top: 62px;
+  z-index: 2;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1023px) {
+  .content {
     margin-left: 0;
   }
 }

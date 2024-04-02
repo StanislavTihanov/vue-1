@@ -1,7 +1,18 @@
 :root {
-    --primary-color: #6979f8;
-    --primary-color-hover: #a5affb;
-    --second-color: #be52f2;
+    --primary: #6979f8;
+    --primary-hover: #a5affb;
+    --second: #be52f2;
+    --second-hover: #DBA5F5;
+    --success: #00C48C;
+    --success-hover: #7DDFC3;
+    --info: #0084F4;
+    --info-hover: #66B5F8;
+    --warning: #FFA26B;
+    --warning-hover: #FFC7A6;
+    --danger: #FF647C;
+    --danger-hover: #FDAFBB;
+    --white: #FFFFFF;
+    --black: #000000;
 }
 
 * {
@@ -15,7 +26,4 @@ body {
 a {
     color: var(--primary-color);
     text-decoration: none;
-}
-h1 {
-    color: #000;
 }
