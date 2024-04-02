@@ -36,6 +36,15 @@ import Button from "@/components/Button.vue";
     <Button label="Warning" color="warning" :outlined="true" />
     <Button label="Danger" color="danger" :outlined="true" />
   </div>
+  <h2 class="heading-2">Icons</h2>
+  <div class="line">
+    <Button color="primary" icon="heart" />
+    <Button color="second" icon="hand" />
+    <Button color="success" icon="address-book" />
+    <Button color="info" icon="credit-card" />
+    <Button color="warning" icon="lemon" />
+    <Button color="danger" icon="hourglass" />
+  </div>
 </template>
 
 
@@ -47,6 +56,6 @@ import Button from "@/components/Button.vue";
   gap: 15px;
 }
 .heading-1 {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 </style>
