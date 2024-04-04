@@ -1,5 +1,10 @@
 <script setup>
 import Button from "@/components/Button.vue";
+
+const eventForButton = () => {
+  alert('You clicked danger button')
+}
+
 </script>
 
 <template>
@@ -38,15 +43,24 @@ import Button from "@/components/Button.vue";
   </div>
   <h2 class="heading-2">Icons</h2>
   <div class="line">
-    <Button color="primary" icon="heart" />
+    <Button color="primary" icon="heart" :outlined="true" />
     <Button color="second" icon="hand" />
-    <Button color="success" icon="address-book" />
+    <Button color="success" icon="address-book" :outlined="true"  />
     <Button color="info" icon="credit-card" />
-    <Button color="warning" icon="lemon" />
+    <Button color="warning" icon="lemon" :outlined="true"  />
     <Button color="danger" icon="hourglass" />
   </div>
+  <h2 class="heading-2">Size</h2>
+  <div class="line">
+    <Button label="Normal" color="primary"/>
+    <Button label="Large" color="second" size="large" />
+  </div>
+  <h2 class="heading-2">Event</h2>
+  <div class="line">
+    <Button label="@click" color="danger" @click="eventForButton"/>
+  </div>
 </template>
-
+ 
 
 <style lang="scss" scoped>
 .line {

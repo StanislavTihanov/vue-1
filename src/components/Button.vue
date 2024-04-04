@@ -22,10 +22,23 @@ const props = defineProps({
   },
   icon: {
     type: String,
-    required: false
+    required: false,
+  },
+  size: {
+    type: String,
+    default: "normal",
   },
 });
+
+const emit = defineEmits(['click'])
+
+const clickOnButton = () => {
+  emit('click')
+}
+
 </script>
+
+
 
 
 <template>
@@ -35,10 +48,14 @@ const props = defineProps({
       `btn_${color}`,
       { btn_rounded: rounded },
       { btn_outlined: outlined },
+      { btn_icon: icon },
+      { btn_large: size === 'large' },
     ]"
-    :disabled="disabled">
+    :disabled="disabled"
+    @click="clickOnButton"
+  >
     <span v-if="icon">
-        <font-awesome-icon :icon="`fa-regular  fa-${icon}`"/>
+      <font-awesome-icon :icon="`fa-regular  fa-${icon}`" />
     </span>
     <span v-else>{{ label }}</span>
   </button>
@@ -111,6 +128,16 @@ const props = defineProps({
     &:hover {
       color: var(--white);
     }
+  }
+  &_icon {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  &_large {
+    height: 48px;
+    padding: 0 30px;
   }
 }
 </style>
